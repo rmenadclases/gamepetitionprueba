@@ -1,0 +1,330 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bgWhite {
+    background-color: #fff;
+}
+
+.fontGP {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: xx-large;
+}
+
+.fontMenu {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: x-large;
+    color: #fff;
+}
+
+.fontMenuOpen {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: x-large;
+    color: #fff;
+}
+
+.fontMenuStatic {
+    font-family: 'Montserrat', sans-serif;
+    font-size: x-large;
+    color: #fff;
+}
+
+.prfSubMenu {
+    font-family: 'Montserrat', sans-serif;
+    font-size: large;
+    color: #3ca459;
+}
+
+.ligSubMenu {
+    font-family: 'Montserrat', sans-serif;
+    font-size: large;
+    color: #f1b70d;
+}
+
+.tornSubMenu {
+    font-family: 'Montserrat', sans-serif;
+    font-size: large;
+    color: #e44a3e;
+}
+
+.compSubMenu {
+    font-family: 'Montserrat', sans-serif;
+    font-size: large;
+    color: #4a88ed;
+}
+
+.logoImg {
+    max-height: 35px;
+}
+
+.logoTxt {
+    max-height: 25px;
+}
+
+.betaTxt {
+    margin-left: 10px;
+}
+
+p {
+    margin: 0px;
+}
+
+.header-bg {
+    background-image: linear-gradient(180deg, #eee, #fff 100px, #fff);
+    background-repeat: no-repeat;
+}
+
+.container {
+    max-width: 960px;
+}
+
+.pricing-header {
+    max-width: 700px;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.drop-shadow {
+    filter: drop-shadow(7px 7px 3px #666666);
+    -webkit-filter: drop-shadow(7px 7px 3px #666666);
+}
+
+.square {
+    width: 80%;
+    /* background: linear-gradient(to bottom right, transparent calc(50% - 5px), black calc(50% - 5px), black 50%, transparent 50%), linear-gradient(to bottom left, transparent calc(50% - 5px), black calc(50% - 5px), black 50%, transparent 50%); */
+}
+
+.square:after {
+    content: '';
+    display: block;
+    padding-bottom: 10%;
+}
+
+.squareBg {
+    background-image: url('../images/cross.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center
+}
+
+.crossContent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.imgCross {
+    max-width: 30%;
+    height: auto;
+    cursor: pointer;
+}
+
+.bannerCross {
+    height: 80px;
+    color: #fff;
+    font-size: 35px;
+}
+
+.ligaBg {
+    background-color: #f1b70d;
+}
+.jamboreeBg {
+    background-color: #080600 !important;
+    color: white !important;
+}
+
+.ligaColor {
+    color: #f1b70d;
+}
+
+.compBg {
+    background-color: #4a88ed;
+}
+
+.compColor {
+    color: #4a88ed;
+}
+
+.tornBg {
+    background-color: #e44a3e;
+}
+
+.tornColor {
+    color: #e44a3e;
+}
+
+.perfBg {
+    background-color: #3ca459;
+}
+
+.perfColor {
+    color: #3ca459;
+}
+
+.selMenu {
+    transform: skew(-30deg);
+    position: relative;
+    left: 20px;
+    cursor: pointer;
+}
+
+.selMenuStatic {
+    transform: skew(-30deg);
+    position: relative;
+    left: 20px;
+}
+
+.selMenu p {
+    transform: skew(30deg);
+}
+
+.selMenuStatic p {
+    transform: skew(30deg);
+}
+
+.objSkew {
+    transform: skew(-28deg);
+}
+
+.objSkew p {
+    transform: skew(28deg);
+}
+
+.objSkew img {
+    transform: skew(28deg);
+}
+
+.objSkew span {
+    transform: skew(28deg);
+}
+.objSkew button {
+    transform: skew(28deg);
+}
+
+/* .inbox-badge {
+    margin-left: -5px;
+    margin-top: -5px;
+} */
+
+.listImg {
+    margin-left: -3.5rem;
+    margin-top: -1rem;
+}
+
+.selOption {
+    cursor: pointer;
+}
+
+.margin-5 {
+    margin-top: -4px;
+    margin-bottom: -4px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.line-box {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background: #BCBCBC;
+}
+
+.line {
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3ca459;
+    transition: ease .6s;
+}
+
+.input:focus+.line-box .line {
+    width: 100%;
+}
+
+#login-dp {
+    min-width: 300px;
+    padding: 14px 14px 0;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, .8);
+}
+
+.col-20 {
+    width: 20%;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.maskGP {
+    mask-image: url('../images/mascara_perfil.svg');
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+    mask-position: center;
+    -webkit-mask-image: url('../images/mascara_perfil.svg');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100%;
+    -webkit-mask-position: center;
+    display: block;
+    width: 100%;
+    height: 120px;
+}
+
+.i_maskGP {
+    position: relative;
+    z-index: 100;
+}
+
+.accordion-button:focus {
+    z-index: 3;
+    border-color: #e44a3e;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25);
+}
+
+.accordion-button:not(.collapsed) {
+    color: #ffffff;
+    background-color: #e44a3e;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+}
+
+.torBadge {
+    margin-top: -6px;
+    margin-left: -6px;
+}
+.ligaNegrita{
+    font-weight: 900 !important;
+}
+.ligasubmenu p{
+    font-weight: 900 !important;
+}
+.namePart{
+    font-weight: 900 !important;
+}
+.posPart{
+    font-weight: 900 !important;
+}

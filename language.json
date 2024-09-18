@@ -1,0 +1,19 @@
+{
+    "config": {
+        "default": "es"
+    },
+    "language": {
+        "en": {
+            "#bannerCrossLiga": "LEAGUE",
+            "#bannerCrossTorn": "TOURNAMENT",
+            "#bannerCrossComp": "COMPETITION",
+            "#bannerCrossPerf": "PROFILE"
+        },
+        "es": {
+            "#bannerCrossLiga": "LIGA",
+            "#bannerCrossTorn": "TORNEO",
+            "#bannerCrossComp": "COMPETICION",
+            "#bannerCrossPerf": "PERFIL"
+        }
+    }
+}
