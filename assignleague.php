@@ -233,6 +233,21 @@ switch ($row['lgtipo']) {
             </div>
         </div>
     <?php } ?>
+
+    <div class="d-flex justify-content-center my-1">
+        <div class="col-md-8 col-sm-12 col-12">
+            <div class="alert alert-warning text-center alert-dismissible fade show" role="alert" id="alertNewLeague" >
+                <div tkey="league_admin_warn"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+      <div class="d-flex justify-content-center mb-3">
+         <div class="col-md-3 col-sm-6 d-grid gap-2">
+            <button class="btn btn btn-outline-success" type="button" id="butCreaPeti" lgtipo="LIG" tkey="butCrea" data-id="<?php echo $row['lgid']; ?>"></button>
+         </div>
+      </div>
+   </div>
 </div>
 
 <?php

@@ -2,8 +2,8 @@
 include_once 'templates/header.php';
 ?>
 
-<title>Game Petition - Jamboree</title>
-<div class="justify-content-center fontGP py-3  text-center jamboreeBg" tkey="jamboree">Jamboree<img src="" alt=""></div>
+<title>GamePetition - Jamboree</title>
+<div class="justify-content-center fontGP py-3  text-center jamboreeBg" tkey="jamboree"><img src="" alt=""></div>
 
 <div class="container pt-4" style="max-width: 1120px;">
 

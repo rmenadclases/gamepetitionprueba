@@ -17,9 +17,6 @@ $(".selLanguage").click(function() {
             break;
         case 'en':
             txtLang = 'English'
-        case 'ja':
-            txtLang = 'Japonés'
-            break;           
         default:
             break;
     }
@@ -53,10 +50,6 @@ function changLanguage() {
             break;
         case 'en':
             txtLang = 'English'
-            break;
-            case 'ja':
-            txtLang = 'Japonés'
-            break;
         default:
             break;
     }

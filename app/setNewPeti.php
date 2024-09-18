@@ -11,15 +11,33 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 $json = array();
 
-$sql = "INSERT INTO petitions(lgcreaid, lgname, lggame, lgnumpart, lgtipduel, lgvueltas, lgpriva, lglocal, lgdescrip, lgmarcad, lgdesemp, lgpremio, lgtipo)
-    VALUES (" . $_SESSION['id'] . ", '" . $_POST['lgname'] . "', '" . $_POST['lggame'] . "', '" . $_POST['lgnumpart'] . "', '" . $_POST['lgtipduel'] . "', '" . $_POST['lgvueltas'] . "', '" . $_POST['lgpriva'] . "', '" . $_POST['lglocal'] . "', '" . $_POST['lgdescrip'] . "', '" . $_POST['lgmarcad'] . "', '" . $_POST['lgdesemp'] . "', '" . $_POST['lgpremio'] . "', '" . $_POST['lgtipo'] . "');";
+// Escapar caracteres especiales para prevenir inyecciones SQL
+$lgname = mysqli_real_escape_string($connection, $_POST['lgname']);
+$lggame = mysqli_real_escape_string($connection, $_POST['lggame']);
+$lgnumpart = mysqli_real_escape_string($connection, $_POST['lgnumpart']);
+$lgtipduel = mysqli_real_escape_string($connection, $_POST['lgtipduel']);
+$lgvueltas = mysqli_real_escape_string($connection, $_POST['lgvueltas']);
+$lgpriva = mysqli_real_escape_string($connection, $_POST['lgpriva']);
+$lglocal = mysqli_real_escape_string($connection, $_POST['lglocal']);
+$lgdescrip = mysqli_real_escape_string($connection, $_POST['lgdescrip']);
+$lgmarcad = mysqli_real_escape_string($connection, $_POST['lgmarcad']);
+$lgdesemp = mysqli_real_escape_string($connection, $_POST['lgdesemp']);
+$lgpremio = mysqli_real_escape_string($connection, $_POST['lgpremio']);
+$lgtipo = mysqli_real_escape_string($connection, $_POST['lgtipo']);
+
+// Construir la consulta SQL
+$sql = "INSERT INTO league (lgcreaid, lgname, lggame, lgnumpart, lgtipduel, lgvueltas, lgpriva, lglocal, lgdescrip, lgmarcad, lgdesemp, lgpremio, lgtipo)
+    VALUES ('" . $_SESSION['id'] . "', '$lgname', '$lggame', '$lgnumpart', '$lgtipduel', '$lgvueltas', '$lgpriva', '$lglocal', '$lgdescrip', '$lgmarcad', '$lgdesemp', '$lgpremio', '$lgtipo');";
 
 if ($connection->query($sql)) {
     $leagId = $connection->insert_id;
     if (count($_POST['participantes']) > 0) {
         foreach ($_POST['participantes'] as $value) {
-            $sqlPart = utf8_decode("INSERT INTO participantes(ptusrid, ptleagid)
-            VALUES (" . $value . ", " . $leagId . ");");
+            //$sqlPart = utf8_decode("INSERT INTO participantes(ptusrid, ptleagid)
+            //VALUES (" . $value . ", " . $leagId . ");");
+
+            $sqlPart = mb_convert_encoding("INSERT INTO participantes(ptusrid, ptleagid)
+            VALUES (" . $value . ", " . $leagId . ");", 'ISO-8859-1');
             $connection->query($sqlPart);
         }
     }

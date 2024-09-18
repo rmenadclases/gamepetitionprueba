@@ -43,7 +43,7 @@ if ($result = $connection->query($sql)) {
     $json['ERROR'] = $connection->error;
 } */
 
-$sql = utf8_decode("select gaimg, lgname, ganame, lgtipduel, lgnumpart, username, lgid 
+/*$sql = utf8_decode("select gaimg, lgname, ganame, lgtipduel, lgnumpart, username, lgid 
 from league 
 LEFT JOIN games on games.gaid = league.lggame 
 left join users on league.lgcreaid = users.id 
@@ -55,7 +55,24 @@ lef join league on league.lgid = ptleagid
 LEFT JOIN games on games.gaid = league.lggame 
 left join users on league.lgcreaid = users.id 
 where ptusrid = " . $_SESSION['id'] . " and lgcreaid <> " . $_SESSION['id'] . " $where
-;");
+;");*/
+
+$sql = mb_convert_encoding("select gaimg, lgname, ganame, lgtipduel, lgnumpart, username, lgid 
+from league 
+LEFT JOIN games on games.gaid = league.lggame 
+left join users on league.lgcreaid = users.id 
+where lgcreaid = " . $_SESSION['id'] . " $where
+union all 
+select gaimg, lgname, ganame, lgtipduel, lgnumpart, username, lgid 
+from participantes
+lef join league on league.lgid = ptleagid
+LEFT JOIN games on games.gaid = league.lggame 
+left join users on league.lgcreaid = users.id 
+where ptusrid = " . $_SESSION['id'] . " and lgcreaid <> " . $_SESSION['id'] . " $where
+;", 'ISO-8859-1');
+
+            /*$sqlPart = mb_convert_encoding("INSERT INTO participantes(ptusrid, ptleagid)
+            VALUES (" . $value . ", " . $lgid . ");", 'ISO-8859-1');*/
 
 if ($result = $connection->query($sql)) {
     $json['COUNT'] = $result->num_rows;

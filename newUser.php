@@ -3,7 +3,7 @@
 
 include_once 'templates/header.php';
 ?>
-<title>Game Petition - New User</title>
+<title>GamePetition - New User</title>
 <div class="justify-content-center fontGP py-3 bannerCross text-center perfBg" tkey="newUser"></div>
 <div class="container" style="max-width: 1120px;">
     <form class="mt-4">

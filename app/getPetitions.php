@@ -25,19 +25,20 @@ if ($result = $connection->query($sql)) {
     $json['ERROR'] = $connection->error;
 } */
 
-$sql = utf8_decode("select gaimg, lgname, ganame, lgtipduel, lgnumpart, username, lgid 
-from petitions 
-LEFT JOIN games on games.gaid = petitions.lggame 
-left join users on petitions.lgcreaid = users.id 
+$sql = mb_convert_encoding("select gaimg, lgname, ganame, lgtipduel, lgnumpart, username, lgid 
+from league 
+LEFT JOIN games on games.gaid = league.lggame 
+left join users on league.lgcreaid = users.id 
 where lgcreaid = " . $_SESSION['id'] . "
+and lgtipo = 'PET'
 union all 
 select gaimg, lgname, ganame, lgtipduel, lgnumpart, username, lgid 
 from participantes
-lef join petitions on petitions.lgid = ptleagid
-LEFT JOIN games on games.gaid = petitions.lggame 
-left join users on petitions.lgcreaid = users.id 
+lef join league on league.lgid = ptleagid
+LEFT JOIN games on games.gaid = league.lggame 
+left join users on league.lgcreaid = users.id 
 where ptusrid = " . $_SESSION['id'] . " and lgcreaid <> " . $_SESSION['id'] . "
-;");
+;", 'ISO-8859-1');
 
 if ($result = $connection->query($sql)) {
     $json['COUNT'] = $result->num_rows;

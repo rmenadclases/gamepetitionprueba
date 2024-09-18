@@ -3,7 +3,7 @@
 
 include_once 'templates/header.php';
 ?>
-<title>Game Petition - Torneo</title>
+<title>GamePetition - Torneo</title>
 <div class="justify-content-center fontGP py-3 bannerCross text-center tornBg" tkey="torn">TORNEO</div>
 <div class="container pt-4" style="max-width: 1120px;">
 

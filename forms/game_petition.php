@@ -1,5 +1,5 @@
-<div class="row justify-content-center mt-4 ligaSub" id="dv_game_petition">   
-   <div class="col-md-5 col-sm-11">
+<div class="row justify-content-center mt-4 ligaSub" id="dv_game_petition" style="display:none">   
+   <div class="col-md-5 col-sm-11 form">
       <div class="d-flex justify-content-center mb-3">
          <div class="col text-center my-2">
             <img id="lgimgP" class="img-fluid" src="images/gamepetition.png" />
@@ -75,7 +75,7 @@
             <div tkey="lglocal" class="ligSubMenu"></div>
          </div>
          <div class="col-7">
-            <select class="form-select" id="lglocal">
+            <select class="form-select" id="lglocalP">
                <option value="ONL" tkey="online"></option>
                <option value="PRE" tkey="presencial"></option>
             </select>
@@ -86,18 +86,18 @@
             <div tkey="lgpriva" class="ligSubMenu"></div>
          </div>
          <div class="col-7">
-            <select class="form-select" id="lgpriva">
+            <select class="form-select" id="lgprivaP">
                <option value="PUB" tkey="publica"></option>
                <option value="PRI" tkey="privada"></option>
             </select>
          </div>
       </div>
    </div>
-   <div class="col-md-5 col-sm-11 mx-2 my-auto">
+   <div class="col-md-5 col-sm-11 mx-2 my-auto form">
       <!-- DETALLES -->
       <div class="d-flex justify-content-center mb-3">
          <div class="col-12 my-auto">
-            <div class="row justify-content-between ligSubMenu ligaBg selOption text-white py-1" id="butDetails">
+            <div class="row justify-content-between ligSubMenu ligaBg selOption text-white py-1" id="butDetailsP">
                <p class="col-10" tkey="detalles"></p>
                <p class="col-2 text-end">
                   <i class="fas fa-plus"></i>
@@ -105,7 +105,7 @@
             </div>
          </div>
       </div>
-      <div style="display: none;" id="divDetails">
+      <div style="display: none;" id="divDetailsP">
          <div class="d-flex justify-content-center mb-3">
             <div class="col-5 mb-auto">
                <div tkey="lgdescrip" class="ligSubMenu"></div>
@@ -154,7 +154,7 @@
       <!-- PARTICIPANTES -->
       <div class="d-flex justify-content-center mb-3">
          <div class="col-12 my-auto">
-            <div class="row justify-content-between ligSubMenu ligaBg selOption text-white py-1" id="butParticip">
+            <div class="row justify-content-between ligSubMenu ligaBg selOption text-white py-1" id="butParticipP">
                <p class="col-10" tkey="particip"></p>
                <p class="col-2 text-end">
                   <i class="fas fa-plus"></i>
@@ -162,15 +162,15 @@
             </div>
          </div>
       </div>
-      <div style="display: none;" id="divParticip">
+      <div style="display: none;" id="divParticipP">
          <div class="d-flex justify-content-center mb-3">
             <div class="col-5 my-auto">
                <div tkey="lgaddpart" class="ligSubMenu"></div>
             </div>
             <div class="col-7 ">
                <div class="input-group">
-                  <input class="form-control" type="text" list="lgpartlist" id="lgpart">
-                  <datalist id="lgpartlist">
+                  <input class="form-control" type="text" list="lgpartlist" id="lgpartP">
+                  <datalist id="lgpartlistP">
                      <?php
                         $sqlGames = "select * from users order by name";
                         $resGames = $connection->query($sqlGames);
@@ -179,11 +179,11 @@
                         }
                         ?>
                   </datalist>
-                  <button class="btn btn-outline-success" type="button" id="butAddPart"><i class="fas fa-plus"></i></button>
+                  <button class="btn btn-outline-success" type="button" id="butAddPartP"><i class="fas fa-plus"></i></button>
                </div>
             </div>
          </div>
-         <p class="text-center">Usuarios No Registrados</p>
+         <p class="text-center" tkey="usunoreg"></p>
          <div class="d-flex justify-content-center mb-3">
             <div class="col-5 my-auto">
                <div tkey="lgaddpart" class="ligSubMenu"></div>
@@ -202,7 +202,7 @@
    <div class="col-12">
       <div class="d-flex justify-content-center mb-3">
          <div class="col-md-3 col-sm-6 d-grid gap-2">
-            <button class="btn btn btn-outline-success" type="button" id="butCreaPeti" lgtipo="PET" tkey="butCrea"></button>
+            <button class="btn btn btn-outline-success" type="button" id="butCreaPeti" lgtipoP="PET" tkey="butCrea"></button>
          </div>
       </div>
    </div>

@@ -1,7 +1,7 @@
 <?php
 include_once 'templates/header.php';
 ?>
-<title>Game Petition - Home</title>
+<title>GamePetition - Home</title>
 <div class="justify-content-center fontGP py-3 bannerCross text-center" id="bannerCross"></div>
 <div class="justify-content-center fontGP py-3 bannerCross text-center ligaBg" id="bannerCrossLiga" tkey="liga" style="display: none;">LIGA</div>
 <div class="justify-content-center fontGP py-3 bannerCross text-center compBg" id="bannerCrossComp" tkey="comp" style="display: none;">COMPETICIÓN</div>
@@ -24,9 +24,9 @@ include_once 'templates/header.php';
     </div>
 
 <!-- Logos Jamboree y PlayTogether-->
-    <div class="content d-flex justify-content-between align-items-center" style="position: absolute; bottom: 0; width: 100%; background-color: white; z-index: 1000;">
+    <div class="content d-flex justify-content-between align-items-center" style="position: absolute; bottom: 80px; width: 100%; z-index: 1000;">
         <img class="d-block ms-5" src="/images/PLAY TOGETHER AGAIN BUTTON.png" width="100px" height="100px">
-        <a   href="jamboree.php"><img class="d-block mr-0" src="/images/GamePetition Jamboree Logo NEGRO SANGRE.png" width="400px" height="88px"></a>
+        <a href="jamboree.php" class="jamboree"><img class="d-block mr-0" src="/images/GamePetition Jamboree Logo NEGRO SANGRE.png" width="400px" height="88px"></a>
     </div>
 
     <?php

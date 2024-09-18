@@ -1,15 +1,7 @@
 <?php if (!$row['lgready']) { ?>
-    <input type="hidden" name="lgtipduel" value="<?php echo $row['lgtipduel']; ?>">
-            <input type="hidden" name="lgtipo" value="<?php echo $row['lgtipo']; ?>">
-            <input type="hidden" name="lgid" value="<?php echo $row['lgid']; ?>">
-        <button class="btn btn-outline-success" type="button" id="butCreaVs" <?php echo ($row['partAdd'] == $row['lgnumpart'] ? '' : 'disabled'); ?> data-id="<?php echo $row['lgid']; ?>" tkey="butCreaVs"></button>
-
-
-    <!--
     <div class="col-md-3 col-sm-6 d-grid gap-2 my-3">
         <button class="btn btn btn-outline-success" type="button" id="butCreaVs" <?php echo ($row['partAdd'] == $row['lgnumpart'] ? '' : 'disabled'); ?> data-id="<?php echo $row['lgid']; ?>" tkey="butCreaVs"></button>
     </div>
--->
 <?php
 } else {
     $faseTot = intval(log($row['lgnumpart'], 2));

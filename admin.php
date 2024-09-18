@@ -5,7 +5,7 @@ if ($_SESSION['rol'] <> 'Admin') {
     header('Location: index.php');
 }
 ?>
-<title>Game Petition - Admin</title>
+<title>GamePetition - Admin</title>
 <div class="justify-content-center fontGP py-3 bannerCross text-center tornBg">ADMIN</div>
 <div class="container" style="max-width: 1120px;">
     <div class="row justify-content-center my-4">

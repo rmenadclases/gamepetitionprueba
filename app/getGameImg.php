@@ -10,7 +10,8 @@ require_once '../resources/config.php';
 $json = array();
 
 if ($_POST['gameid'] > 0) {
-    $sql = utf8_decode("select * from games where gaid = " . $_POST['gameid'] . ";");
+    //$sql = utf8_decode("select * from games where gaid = " . $_POST['gameid'] . ";");
+    $sql = mb_convert_encoding("select * from games where gaid = " . $_POST['gameid'] . ";", 'ISO-8859-1');
 
     if ($result = $connection->query($sql)) {
         $row = $result->fetch_array(MYSQLI_ASSOC);

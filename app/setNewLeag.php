@@ -33,8 +33,11 @@ if ($connection->query($sql)) {
     $leagId = $connection->insert_id;
     if (count($_POST['participantes']) > 0) {
         foreach ($_POST['participantes'] as $value) {
-            $sqlPart = utf8_decode("INSERT INTO participantes(ptusrid, ptleagid)
-            VALUES (" . $value . ", " . $leagId . ");");
+            //$sqlPart = utf8_decode("INSERT INTO participantes(ptusrid, ptleagid)
+            //VALUES (" . $value . ", " . $leagId . ");");
+            
+            $sqlPart = mb_convert_encoding("INSERT INTO participantes(ptusrid, ptleagid)
+            VALUES (" . $value . ", " . $leagId . ");", 'ISO-8859-1');
             $connection->query($sqlPart);
         }
     }

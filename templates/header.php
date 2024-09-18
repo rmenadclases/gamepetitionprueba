@@ -1,4 +1,6 @@
 <?php
+//PHP 7.4.33
+//phpinfo();
 ob_start();
 session_start();
 error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING ^ E_DEPRECATED);
@@ -101,7 +103,8 @@ $rowInboxCount = $resInboxCount->fetch_array(MYSQLI_ASSOC);
             <div class="container-lg">
                 <a class="navbar-brand" href="/">
                     <img class="img-fluid logoImg" src="images/Logo Gamepetition def.png">
-                    <img class="img-fluid logoTxt" src="/images/gamepetition.png">
+                    <img class="img-fluid logoTxt" src="/images/gamepetition.png"> 
+                    <img class="img-fluid logoTxt betaTxt" src="/images/beta.png">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -191,12 +194,6 @@ $rowInboxCount = $resInboxCount->fetch_array(MYSQLI_ASSOC);
                                     <div class="d-inline align-items-center">
                                         <span class="" tkey="en"></span>
                                         <img src="images/lang/en.png" class="rounded float-end" width="20px;">
-                                    </div>
-                                </a>
-                                <a class="dropdown-item selLanguage" lang="ja" role="button">
-                                    <div class="d-inline align-items-center">
-                                        <span class="" tkey="ja"></span>
-                                        <img src="images/lang/ja.png" class="rounded float-end" width="20px;">
                                     </div>
                                 </a>
                             </div>

@@ -80,7 +80,7 @@
     "lgaddpart": "Añadir Participante",
     "creaLeag_success": "Enhorabuena, Liga Creada",
     "creaTorn_success": "Enhorabuena, Torneo Creado",
-
+    "creaPet_success": "Enhorabuena, Petición Creada",
     "select": "Selecciona...",
     "online": "Online",
     "presencial": "Presencial",
@@ -115,5 +115,8 @@
     "anyadirJamboree":"Añadir Liga/Competición/Torneo",
     "direcJamboree":"Añadir Dirección",
     "Liga1vs":"Liga Simple (1 Vs 1)",
-    "CMP":"Campeón de la pista"
+    "CMP":"Campeón de la pista",
+    "usunoreg": "Usuarios No Registrados",
+    "generic_error": "Se ha producido un error",
+    "league_admin_warn": "Al aceptar la petición pasarás a ser el administrador de la liga."
 }

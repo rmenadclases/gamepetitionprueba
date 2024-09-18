@@ -8,7 +8,8 @@ setlocale(LC_ALL, 'es_ES');
 require_once '../resources/config.php';
 
 $json = array();
-$sql = utf8_decode("UPDATE versusTor set vspuntos = " . $_POST['puntos'] . " where vsidtor = " . $_POST['lgid'] . " and vsidusr = " . $_POST['usrid'] . " and vsnumvs = " . $_POST['numvs'] . ";");
+//$sql = utf8_decode("UPDATE versusTor set vspuntos = " . $_POST['puntos'] . " where vsidtor = " . $_POST['lgid'] . " and vsidusr = " . $_POST['usrid'] . " and vsnumvs = " . $_POST['numvs'] . ";");
+$sql = mb_convert_encoding("UPDATE versusTor set vspuntos = " . $_POST['puntos'] . " where vsidtor = " . $_POST['lgid'] . " and vsidusr = " . $_POST['usrid'] . " and vsnumvs = " . $_POST['numvs'] . ";", 'ISO-8859-1');
 
 if ($connection->query($sql)) {
     $sqlVs = "SELECT vspuntos, vsidusr, username FROM versusTor LEFT JOIN users on users.id = vsidusr WHERE vsidtor = " . $_POST['lgid'] . " and vsnumvs = " . $_POST['numvs'] . "; ";

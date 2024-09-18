@@ -80,7 +80,8 @@
     "lgaddpart": "Add Player",
     "creaLeag_success": "Congrats! You created a League!",
     "creaTorn_success": "Congrats! You created a Tournament!",
-	
+    "creaPet_success": "Congrats! You created a Petition!",
+    
     "select": "Select...",
     "online": "Online",
     "presencial": "In Person",
@@ -114,6 +115,9 @@
     "imgJamboree":"Upload an Image",
     "anyadirJamboree":"Add League/Competition/Tournament",
     "direcJamboree":"Add Address",
+    "usunoreg": "Users not registered",
+    "generic_error": "An error has occurred",
+    "league_admin_warn": "patata",
     "Liga1vs":"League Simple (1 Vs 1)",
     "CMP":"King of the Court"
     

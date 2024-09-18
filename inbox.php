@@ -8,7 +8,7 @@ WHERE participantes.ptview = 0 and participantes.ptusrid = " . $_SESSION['id'] .
 $resInboxNot = $connection->query($sqlInboxNot);
 
 ?>
-<title>Game Petition - Inbox</title>
+<title>GamePetition - Inbox</title>
 <div class="justify-content-center fontGP py-3 bannerCross text-center perfBg" tkey="inbox"></div>
 <div class="container text-center" style="max-width: 1120px;">
     <?php if ($_SESSION['logged_in'] && $_SESSION['app'] == 'GamePetition') { ?>

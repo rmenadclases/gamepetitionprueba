@@ -28,9 +28,11 @@ if ($resCompUser->num_rows > 0) {
 } else {
     $token = md5(date("Y-m-d h:i:s"));
     $email = $_POST['email'];
-    $sql = utf8_decode("INSERT INTO users(username, name, email, pass, address, phone, news, token)
-    VALUES ('" . $_POST['username'] . "', '" . $_POST['name'] . "', '" . $_POST['email'] . "', '" . md5($_POST['pass']) . "', '" . $_POST['domicilio'] . "', '" . $_POST['telefono'] . "', " . ($_POST['newsCheck'] == 'true' ? 'current_date' : 'null') . ", '$token');");
+    //$sql = utf8_decode("INSERT INTO users(username, name, email, pass, address, phone, news, token)
+    //VALUES ('" . $_POST['username'] . "', '" . $_POST['name'] . "', '" . $_POST['email'] . "', '" . md5($_POST['pass']) . "', '" . $_POST['domicilio'] . "', '" . $_POST['telefono'] . "', " . ($_POST['newsCheck'] == 'true' ? 'current_date' : 'null') . ", '$token');");
 
+    $sql = mb_convert_encoding("INSERT INTO users(username, name, email, pass, address, phone, news, token)
+    VALUES ('" . $_POST['username'] . "', '" . $_POST['name'] . "', '" . $_POST['email'] . "', '" . md5($_POST['pass']) . "', '" . $_POST['domicilio'] . "', '" . $_POST['telefono'] . "', " . ($_POST['newsCheck'] == 'true' ? 'current_date' : 'null') . ", '$token');", 'ISO-8859-1');
     include_once '../resources/body_confirm_email.php';
     try {
         $mail = new PHPMailer;

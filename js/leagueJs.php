@@ -18,8 +18,14 @@
     $("#butDetails").click(function() {
         $("#divDetails").slideToggle(500)
     })
+    $("#butDetailsP").click(function() {
+        $("#divDetailsP").slideToggle(500)
+    })
     $("#butParticip").click(function() {
         $("#divParticip").slideToggle(500)
+    })
+    $("#butParticipP").click(function() {
+        $("#divParticipP").slideToggle(500)
     })
     $("#butListDesa").click(function() {
         listCompe('DES', $(this).attr('lgtipo'), '#divListDesa')
@@ -174,7 +180,7 @@ function displayResults(results) {
                 }
                 if (response['RESPONSE'] == 'SUCCESS') {
                     for (var i = 0; i < response['COUNT']; i++) {
-                        var html = `<a href="edtleague.php?id=` + response['LEAGUES'][i]['lgid'] + `" class="text-decoration-none">
+                        var html = `<a href="assignleague.php?id=` + response['LEAGUES'][i]['lgid'] + `" class="text-decoration-none">
                             <div class="row justify-content-between">
                                 <div class="d-flex justify-content-center mb-3 border rounded ` + border + ` objSkew mt-2 ` + color + `">
                                     <div class="col-2 col-20 me-auto ` + subMenu + ` fw-bold listImg">
@@ -340,6 +346,35 @@ function listDispo(tipo, tipoCom, target) {
             }
         }
     })
+
+    $("#butAddPartP").click(function() {
+        console.log('Entro')
+        var val = $("#lgpartP").val();
+        var obj = $("#lgpartlistP").find("option[value='" + val + "']");
+        if (val !== "" && obj != null && obj.length > 0) {
+            var userId = obj.attr("data-id");
+
+            if (participantes.indexOf(userId) < 0) {
+                participantes.push(userId)
+
+                var html = `
+                <div class="d-flex justify-content-center mb-3 partAdded">
+                    <div class="col-1 me-auto ligSubMenu fw-bold">
+                        <p id="posPartP" class="posPartP">` + ($('.partAdded').length + 1) + ` .</p>
+                    </div>
+                    <div class="col my-auto fw-bold text-center">
+                        <p id="namePartP">` + val + `</p>
+                    </div>
+                    <div class="col-1 ms-auto">
+                        <button class="btn btn-outline-danger delPart" data-id="` + userId + `" type="button" id="butDelPartP"><i class="fas fa-minus"></i></button>
+                    </div>
+                </div>
+                `;
+                $('#dipPartAddedP').append(html);
+                $("#lgpartP").val('')
+            }
+        }
+    })
     $("#butAddPartNoreg").click(function() {
         var val = $("#lgpartnoreg").val();
         $.ajax({
@@ -424,12 +459,16 @@ function listDispo(tipo, tipoCom, target) {
                     if (response['RESPONSE'] == 'SUCCESS') {
                         console.log('ENTRO')
                         borrarCamposCreaLega()
-                        $("#successNewLeague").show();
+                        $("#successNewLeague").addClass("show");
                     }
                     if (response['RESPONSE'] == 'ERROR') {
-                        $("#alertNewLeague").show();
-                        $("#" + response['ERROR']).show()
+                        $("#alertNewLeague").addClass("show");
+                        $("#" + response['ERROR']).addClass("show");
                     }
+                },
+                error: function(oError) {
+                    $("#alertNewLeague").addClass("show");
+                    $("#generic_error").addClass("show");;
                 }
             });
         }
@@ -437,41 +476,48 @@ function listDispo(tipo, tipoCom, target) {
 
     //Crear Peticion
 
-    /*$("#butCreaPeti").click(function() {
+    $("#butCreaPeti").click(function() {
         if (validLeag()) {
             $.ajax({
                 url: 'app/setNewPeti.php',
                 type: 'post',
                 data: {
-                    lgname: $("#lgname").val(),
-                    lggame: $("#lggameSel").val(),
-                    lgnumpart: $("#lgnumpart").val(),
-                    lgtipduel: $("#lgtipduel").val(),
-                    lgvueltas: $("#lgvueltas").val(),
-                    lglocal: $("#lglocal").val(),
-                    lgpriva: $("#lgpriva").val(),
-                    lgdescrip: $("#lgdescrip").val(),
-                    lgmarcad: $("#lgmarcad").val(),
-                    lgdesemp: $("#lgdesemp").val(),
-                    lgpremio: $("#lgpremio").val(),
-                    lgtipo: $(this).attr('lgtipo'),
+                    lgname: $("#lgnameP").val(),
+                    lggame: $("#lggameSel2").val(),
+                    lgnumpart: $("#lgnumpartP").val(),
+                    lgtipduel: $("#lgtipduelP").val(),
+                    lgvueltas: $("#lgvueltasP").val(),
+                    lglocal: $("#lglocalP").val(),
+                    lgpriva: $("#lgprivaP").val(),
+                    lgdescrip: $("#lgdescripP").val(),
+                    lgmarcad: $("#lgmarcadP").val(),
+                    lgdesemp: $("#lgdesempP").val(),
+                    lgpremio: $("#lgpremioP").val(),
+                    lgtipo: $(this).attr("lgtipoP"),
                     participantes: participantes,
                 },
                 dataType: 'json',
                 success: function(response) {
                     if (response['RESPONSE'] == 'SUCCESS') {
-                        console.log('ENTRO')
-                        borrarCamposCreaLega()
+                        borrarCamposCreaPeti();
                         $("#successNewLeague").show();
+                        $("#successNewLeague").addClass("show");
+                        $("#pet_success").show();
                     }
                     if (response['RESPONSE'] == 'ERROR') {
                         $("#alertNewLeague").show();
-                        $("#" + response['ERROR']).show()
+                        $("#alertNewLeague").addClass("show");
+                        $("#" + response['ERROR']).show();
                     }
+                },
+                error: function(oError) {
+                    $("#alertNewLeague").show();
+                    $("#alertNewLeague").addClass("show");
+                    $("#generic_error").show();
                 }
             });
         }
-    })*/
+    });
 
     function borrarCamposCreaLega() {
         $("#lgname").val('')
@@ -506,8 +552,17 @@ function listDispo(tipo, tipoCom, target) {
     }
 
     function validLeag() {
-        valido = true
-        return valido
+        $("#alertNewLeague").removeClass("show");
+        $("#alertNewLeague").hide();
+        $("#successNewLeague").removeClass("show");
+        $("#successNewLeague").hide();
+        $("#pet_success").hide();
+        $("#regist_success").hide();
+        $("#generic_error").hide();
+        $("#email_registered").hide();
+        $("#username_registered").hide();
+        valido = true;
+        return valido;
     }
 
     //Imagenes Juegos
@@ -580,8 +635,35 @@ function listDispo(tipo, tipoCom, target) {
 
         // Campeón de la pista
         if ($("#lgnumpart").val() > 1) {
-            $('#lgtipduel').append('<option value="CMP" tkey="CMP"></option>');
-            changLanguage();
+                $('#lgtipduel').append('<option value="CMP">Campeón de la pista</option>');
+            }
+        }
+    });
+
+    $("#lgnumpartP").change(function() {
+        if ($("#lgnumpartP").val() > 0) {
+            $("#lgtipduelP").prop('disabled', false);
+            $('#lgtipduelP').empty();
+            $('#lgtipduelP').append('<option tkey="select"></option>');
+
+            // 1 Vs 1
+            if ($("#lgnumpartP").val() > 1) {
+                $('#lgtipduelP').append('<option value="1VS">Liga Simple (1 Vs 1)</option>');
+            }
+
+            // 3 Vs
+            if ($("#lgnumpartP").val() == 4 || $("#lgnumpart").val() == 6 || $("#lgnumpart").val() == 7) {
+                $('#lgtipduelP').append('<option value="3VS">3 Vs</option>');
+            }
+
+            // 4 Vs
+            if ($("#lgnumpartP").val() == 7 || $("#lgnumpart").val() == 8) {
+                $('#lgtipduelP').append('<option value="4VS">4 Vs</option>');
+            }
+
+            // Campeón de la pista
+            if ($("#lgnumpartP").val() > 1) {
+                $('#lgtipduelP').append('<option value="CMP">Campeón de la pista</option>');
         }
     }
 });

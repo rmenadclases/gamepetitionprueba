@@ -2,7 +2,7 @@
 
 include_once 'templates/header.php';
 ?>
-<title>Game Petition - <?php echo $_SESSION['username'] ?></title>
+<title>GamePetition - <?php echo $_SESSION['username'] ?></title>
 <div class="justify-content-center fontGP py-3 bannerCross text-center perfBg" tkey="perf"></div>
 <div class="container" style="max-width: 1120px;">
     <?php if ($_SESSION['logged_in'] && $_SESSION['app'] == 'GamePetition') { ?>

@@ -10,7 +10,7 @@ $rowUserData = $resUserData->fetch_array(MYSQLI_ASSOC);
 /* $rowUserData = array_map('utf8_encode', $rowUserData); */
 
 ?>
-<title>Game Petition - Profile</title>
+<title>GamePetition - Profile</title>
 <div class="justify-content-center fontGP py-3 bannerCross text-center perfBg" tkey="conf_perf"></div>
 <div class="container" style="max-width: 1120px;">
     <?php if ($_SESSION['logged_in'] && $_SESSION['app'] == 'GamePetition') { ?>

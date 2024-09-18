@@ -28,7 +28,7 @@ if ($result = $connection->query($sql)) {
     $json['ERROR'] = $connection->error;
 } */
 
-$sql = utf8_decode("SELECT l.*, COALESCE(p.participant_count, 0) AS participant_count, g.ganame, g.gaimg, u.username AS creator_username, u.email AS creator_email
+/*$sql = utf8_decode("SELECT l.*, COALESCE(p.participant_count, 0) AS participant_count, g.ganame, g.gaimg, u.username AS creator_username, u.email AS creator_email
 FROM league l
 LEFT JOIN (
     SELECT ptleagid, COUNT(*) AS participant_count
@@ -42,7 +42,21 @@ WHERE l.lgready = 0
   AND (p.participant_count IS NULL OR l.lgnumpart <> p.participant_count);
 ;
 
-");
+");*/
+
+$sql = mb_convert_encoding("SELECT l.*, COALESCE(p.participant_count, 0) AS participant_count, g.ganame, g.gaimg, u.username AS creator_username, u.email AS creator_email
+FROM league l
+LEFT JOIN (
+    SELECT ptleagid, COUNT(*) AS participant_count
+    FROM participantes
+    GROUP BY ptleagid
+) p ON l.lgid = p.ptleagid
+INNER JOIN games g ON l.lggame = g.gaid
+INNER JOIN users u ON l.lgcreaid = u.id
+WHERE l.lgready = 0
+  AND l.lgpriva = 'PUB'
+  AND (p.participant_count IS NULL OR l.lgnumpart <> p.participant_count);
+;", 'ISO-8859-1');
 
 if ($result = $connection->query($sql)) {
     $json['COUNT'] = $result->num_rows;
